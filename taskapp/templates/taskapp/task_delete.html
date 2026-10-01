@@ -1,0 +1,20 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Delete Task</title>
+    <link rel="stylesheet" href="{% static 'taskapp/css/taskapp.css' %}">
+</head>
+<body>
+    <h2>Confirm Deletion</h2>
+    <p>Are you sure you want to delete the task: "<strong>{{ task.title }}</strong>"?</p>
+    
+    <!-- Form to Delete a task -->
+    <form method="POST">
+        {% csrf_token %}
+        <button type="submit" style="padding: 8px 15px; background: #dc3545; color: white; border: none; border-radius: 4px; cursor: pointer;">Confirm Delete</button>
+        <a href="{% url 'task_list' %}" style="margin-left: 10px; text-decoration: none; color: #555;">Cancel</a>
+    </form>
+</body>
+</html>
