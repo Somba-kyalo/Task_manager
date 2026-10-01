@@ -5,16 +5,16 @@ from django.db import models
 
 #representing an individual task
 class Task(models.Model):
-    #Title of the task 
+    #task title
     title = models.CharField(max_length=200)
     
-    #description of the task
+    #task decription
     description = models.TextField(blank=True, null=True)
     
     #status indicator
     completed = models.BooleanField(default=False)
     
-    #tracking when the task was initially created
+    #tracking when the task wascreated
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):

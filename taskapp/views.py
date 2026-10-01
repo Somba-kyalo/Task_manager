@@ -10,7 +10,7 @@ def task_list(request):
     #fetch all tasks from the database
     tasks = Task.objects.all().order_by("-created_at")
 
-    #handle form submission to create a new task
+    
     if request.method == "POST":
         title = request.POST.get("title")
         if title:
@@ -23,7 +23,6 @@ def task_list(request):
 
 #view for updating an existing task's details
 def task_update(request, pk):
-    # Retrieve the specific task or return a 404 error if it doesn't exist
     task = get_object_or_404(Task, pk=pk)
 
     if request.method == "POST":
